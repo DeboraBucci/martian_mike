@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwj0jmy3o6x1k"]
+[gd_scene load_steps=31 format=3 uid="uid://bwj0jmy3o6x1k"]
 
 [ext_resource type="Texture2D" uid="uid://cnssmn8yrnsyo" path="res://assets/textures/player/Fall (32x32).png" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://mvtcuths0iys" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://kc2vocgww5an" path="res://assets/textures/player/Idle (32x32).png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cp8rc4a2xi4bw" path="res://assets/textures/player/Jump (32x32).png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://1jfhu6pccd1i" path="res://assets/textures/player/Run (32x32).png" id="4_fjrip"]
@@ -199,6 +200,7 @@ animations = [{
 size = Vector2(15, 24)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
