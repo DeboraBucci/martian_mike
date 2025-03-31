@@ -1,15 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://by1t7evh2s8am"]
+[gd_scene load_steps=8 format=3 uid="uid://by1t7evh2s8am"]
 
 [ext_resource type="Script" uid="uid://cbaax54mcr8jj" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://bwj0jmy3o6x1k" path="res://scenes/player.tscn" id="2_w7c3h"]
-[ext_resource type="Texture2D" uid="uid://cwsrvt0s7vbpx" path="res://icon.svg" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://osgd80r06sib" path="res://scenes/jump_pad.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://b41k3i66qma1c" path="res://scenes/saw.tscn" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://bqsyndwy5urx8" path="res://scenes/spike_ball.tscn" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://bxtip14qivbl8" path="res://scenes/tile_map.tscn" id="7_klq6b"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
-size = Vector2(394, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(566, 20)
@@ -19,20 +15,6 @@ script = ExtResource("1_2q6dc")
 
 [node name="Player" parent="." instance=ExtResource("2_w7c3h")]
 position = Vector2(35, 182)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-481, 273)
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-modulate = Color(0.142984, 1.75256e-05, 0.14677, 1)
-position = Vector2(16.5, 0.499996)
-scale = Vector2(3.10156, 0.148437)
-texture = ExtResource("3_w8frs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(17, 1)
-shape = SubResource("RectangleShape2D_mx8sn")
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(-30, 302)
