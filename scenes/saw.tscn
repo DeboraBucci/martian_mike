@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b41k3i66qma1c"]
+
+[ext_resource type="Texture2D" uid="uid://3i57l3cj42cc" path="res://assets/textures/other/Saw.png" id="1_k45r4"]
+[ext_resource type="Script" uid="uid://bkp34w8fryihq" path="res://scripts/trap.gd" id="1_kprxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kprxg"]
+radius = 19.0263
+
+[node name="Saw" type="Node2D"]
+script = ExtResource("1_kprxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k45r4")
+hframes = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kprxg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
