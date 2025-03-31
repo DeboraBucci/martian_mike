@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://by1t7evh2s8am"]
+[gd_scene load_steps=9 format=3 uid="uid://by1t7evh2s8am"]
 
 [ext_resource type="Script" uid="uid://cbaax54mcr8jj" path="res://scripts/level.gd" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://cg0xdr4tad7uj" path="res://scenes/bg.tscn" id="2_klq6b"]
 [ext_resource type="PackedScene" uid="uid://bwj0jmy3o6x1k" path="res://scenes/player.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://osgd80r06sib" path="res://scenes/jump_pad.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://b41k3i66qma1c" path="res://scenes/saw.tscn" id="4_ppgk2"]
@@ -12,6 +13,8 @@ size = Vector2(566, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2q6dc")
+
+[node name="BG" parent="." instance=ExtResource("2_klq6b")]
 
 [node name="Player" parent="." instance=ExtResource("2_w7c3h")]
 position = Vector2(35, 182)
