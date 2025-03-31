@@ -1,13 +1,17 @@
 extends Node2D
 
 @export var next_level: PackedScene = null
+@export var level_time = 60
 
 @onready var start_area = $StartArea
 @onready var exit_area = $ExitArea
 @onready var death_zone = $DeathZone
+@onready var hud = $UILayer/HUD
 
+var win = false
 var player = null
-
+var timer_node = null
+var time_left
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -21,6 +25,17 @@ func _ready():
 	
 	exit_area.body_entered.connect(_on_exit_body_entered)
 	death_zone.body_entered.connect(_on_death_zone_body_entered)
+	
+	time_left = level_time
+	hud.set_time_label(time_left)
+	
+	timer_node = Timer.new()
+	timer_node.name = "LevelTimer"
+	timer_node.wait_time = 1
+	timer_node.timeout.connect(_on_level_timer_timeout)
+	add_child(timer_node)
+	timer_node.start()
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
@@ -47,6 +62,18 @@ func _on_exit_body_entered(body):
 	if body is Player && next_level != null:
 		exit_area.animate()
 		player.player_can_move = false
+		win = true
 		
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_packed(next_level)
+
+
+func _on_level_timer_timeout():
+	if win == false:
+		time_left -= 1
+		hud.set_time_label(time_left)
+		
+		if (time_left < 0):
+			reset_player_position()
+			time_left = level_time
+			hud.set_time_label(time_left)

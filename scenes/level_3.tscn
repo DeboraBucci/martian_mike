@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jbohpo2emsj4"]
+[gd_scene load_steps=13 format=3 uid="uid://jbohpo2emsj4"]
 
 [ext_resource type="PackedScene" uid="uid://cg0xdr4tad7uj" path="res://scenes/bg.tscn" id="1_p6vls"]
 [ext_resource type="Script" uid="uid://cbaax54mcr8jj" path="res://scripts/level.gd" id="1_vcx5n"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b41k3i66qma1c" path="res://scenes/saw.tscn" id="6_ha73p"]
 [ext_resource type="PackedScene" uid="uid://bqsyndwy5urx8" path="res://scenes/spike_ball.tscn" id="7_vcx5n"]
 [ext_resource type="PackedScene" uid="uid://osgd80r06sib" path="res://scenes/jump_pad.tscn" id="8_56dhn"]
+[ext_resource type="PackedScene" uid="uid://iq4c5j55c1il" path="res://scenes/ui_layer.tscn" id="12_ax3dk"]
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource("1_vcx5n")
@@ -61,3 +62,5 @@ jump_force = 500
 
 [node name="Player" parent="." instance=ExtResource("2_hhfj6")]
 position = Vector2(34, 171)
+
+[node name="UILayer" parent="." instance=ExtResource("12_ax3dk")]
