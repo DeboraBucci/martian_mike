@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://by1t7evh2s8am"]
+[gd_scene load_steps=10 format=3 uid="uid://by1t7evh2s8am"]
 
 [ext_resource type="Script" uid="uid://cbaax54mcr8jj" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://cg0xdr4tad7uj" path="res://scenes/bg.tscn" id="2_klq6b"]
 [ext_resource type="PackedScene" uid="uid://bwj0jmy3o6x1k" path="res://scenes/player.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://cwntg5w5d48r6" path="res://scenes/start_area.tscn" id="3_b121j"]
 [ext_resource type="PackedScene" uid="uid://osgd80r06sib" path="res://scenes/jump_pad.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://b41k3i66qma1c" path="res://scenes/saw.tscn" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://bqsyndwy5urx8" path="res://scenes/spike_ball.tscn" id="5_2r41h"]
@@ -16,8 +17,11 @@ script = ExtResource("1_2q6dc")
 
 [node name="BG" parent="." instance=ExtResource("2_klq6b")]
 
+[node name="StartArea" parent="." instance=ExtResource("3_b121j")]
+position = Vector2(27, 179)
+
 [node name="Player" parent="." instance=ExtResource("2_w7c3h")]
-position = Vector2(35, 182)
+position = Vector2(37, 159)
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(-30, 302)
@@ -26,9 +30,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(273, 0)
 shape = SubResource("RectangleShape2D_w8frs")
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(36, 178)
 
 [node name="Traps" type="Node2D" parent="."]
 position = Vector2(18, -40)
@@ -49,7 +50,7 @@ position = Vector2(18, -40)
 position = Vector2(292, 237)
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_mx8sn")]
-position = Vector2(465, 242)
+position = Vector2(466, 237)
 jump_force = 450
 
 [node name="TileMap" parent="." instance=ExtResource("7_klq6b")]
