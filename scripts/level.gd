@@ -48,10 +48,12 @@ func _process(delta):
 
 
 func _on_death_zone_body_entered(body):
+	AudioPlayer.play_sfx("hurt")
 	reset_player_position()
 
 
 func _on_trap_touched_player():
+	AudioPlayer.play_sfx("hurt")
 	reset_player_position()
 
 
