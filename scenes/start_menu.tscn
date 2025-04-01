@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://y84ob3okm3f5"]
+
+[ext_resource type="Script" uid="uid://de1thng38ytxb" path="res://scripts/start_menu.gd" id="1_m7x51"]
+[ext_resource type="PackedScene" uid="uid://cg0xdr4tad7uj" path="res://scenes/bg.tscn" id="1_thu50"]
+[ext_resource type="FontFile" uid="uid://cvyyje7mky4or" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_m7x51"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h61rw"]
+font = ExtResource("2_m7x51")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.616667, 0, 1, 1)
+shadow_color = Color(0, 0, 0, 0.529412)
+shadow_offset = Vector2(5, 5)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7x51")
+
+[node name="BG" parent="." instance=ExtResource("1_thu50")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 56.0
+offset_right = 20.0
+offset_bottom = 79.0
+grow_horizontal = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_h61rw")
+
+[node name="START" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -137.0
+offset_right = 67.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_m7x51")
+theme_override_font_sizes/font_size = 20
+text = "START"
+
+[node name="QUIT" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -90.0
+offset_right = 36.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_m7x51")
+theme_override_font_sizes/font_size = 10
+text = "QUIT"
+
+[connection signal="pressed" from="START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]
